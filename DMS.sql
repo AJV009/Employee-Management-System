@@ -1,6 +1,6 @@
-#To calculate the profit or loss for a given date:
 set serveroutput on 
-#
+
+#To calculate the profit or loss for a given date:
 create or replace function profitday(dat sales.sales_date %type) return varchar2 as
 profit sales.sales %type;
 loss sales.cost %type;
@@ -24,6 +24,8 @@ exception when exp then
 dbms_output.put_line('no profit no loss' );
 end;
 /
+
+
 #To calculate the whole year profit and loss
 create or replace procedure pro_loss as 
 profit sales.sales %type;
@@ -42,6 +44,8 @@ dbms_output.put_line('The loss of one year is = '||loss);
 end if;
 end;
 /
+
+
 #To calculate maximum product  sold in a year:
 create or replace procedure max_pro_sale as
 max_quantity v1.quantity1 %type;
@@ -52,6 +56,8 @@ select product_code into product from v1 where quantity1 = max_quantity;
 dbms_output.put_line('The maximum production sale in  year is of product  '||product||' having quantity '||max_quantity);
 end;
 /
+
+
 #To calculate minimum product sold in a year:
 create or replace procedure min_pro_sale as
 min_quantity v1.quantity1 %type;
